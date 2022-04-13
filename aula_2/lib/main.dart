@@ -1,6 +1,8 @@
-import 'package:aula_2/pages/home_page.dart';
-import 'package:aula_2/pages/settings_page.dart';
+import 'package:aula_2/modules/home/pages/home_page.dart';
+import 'package:aula_2/modules/shared/tab_bar_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'modules/settings/pages/settings_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomePage(),
+      home: const TabBarWidget(),
       routes: {
         "/settings": (_) => const SettingsPage(),
       },

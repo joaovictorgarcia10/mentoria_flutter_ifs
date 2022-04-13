@@ -1,5 +1,5 @@
-import 'package:aula_2/widgets/post_widget.dart';
-import 'package:aula_2/widgets/story_widget.dart';
+import 'package:aula_2/modules/home/widgets/post_widget.dart';
+import 'package:aula_2/modules/home/widgets/story_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
