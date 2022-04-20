@@ -1,5 +1,6 @@
 import 'package:aula_2/modules/curtidas/curtidas_page.dart';
 import 'package:aula_2/modules/home/pages/home_page.dart';
+import 'package:aula_2/modules/perfil/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
 class TabBarWidget extends StatefulWidget {
@@ -16,7 +17,7 @@ class _TabBarWidgetState extends State<TabBarWidget>
   final List<Widget> pages = [
     const HomePage(),
     const CurtidasPage(),
-    Container(color: Colors.yellow),
+    const PerfilPage(),
   ];
 
   @override
@@ -61,7 +62,7 @@ class _TabBarWidgetState extends State<TabBarWidget>
         unselectedLabelColor: Colors.black.withOpacity(0.5),
         indicatorColor: Colors.black,
         indicatorSize: TabBarIndicatorSize.tab,
-        labelStyle: TextStyle(fontSize: 10),
+        labelStyle: const TextStyle(fontSize: 12.0),
       ),
     );
   }

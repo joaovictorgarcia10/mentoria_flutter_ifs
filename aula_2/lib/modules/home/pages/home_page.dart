@@ -1,5 +1,8 @@
+import 'package:aula_2/modules/home/controller/home_controller.dart';
 import 'package:aula_2/modules/home/widgets/post_widget.dart';
 import 'package:aula_2/modules/home/widgets/story_widget.dart';
+import 'package:aula_2/modules/shared/models/usuario_model.dart';
+import 'package:aula_2/modules/shared/repositories/usuario_repository.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +22,14 @@ class _HomePageState extends State<HomePage> {
     "assets/images/img1.jpg",
     "assets/images/img2.jpg",
   ];
+
+  final controller = HomeController();
+
+  @override
+  void initState() {
+    print(controller.usuarioModel.toString());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
