@@ -1,6 +1,6 @@
 # Aula 2
 
-- Introdução ao Flutter e Dart [x]
+- Introdução ao Flutter e Dart [X]
 - Instalação do ambiente de desenvolvimento [x]
 - Extensões úteis no VSCode [x]
 - Criando o aplicativo Flutter [x]
