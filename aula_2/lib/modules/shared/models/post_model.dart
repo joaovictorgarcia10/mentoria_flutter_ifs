@@ -1,16 +1,22 @@
 import 'dart:convert';
 
+import 'package:aula_2/modules/shared/models/usuario_model.dart';
+
 class PostModel {
+  final UsuarioModel? usuario;
   final String? imagePath;
 
   PostModel({
+    required this.usuario,
     this.imagePath,
   });
 
   PostModel copyWith({
+    UsuarioModel? usuario,
     String? imagePath,
   }) {
     return PostModel(
+      usuario: usuario ?? this.usuario,
       imagePath: imagePath ?? this.imagePath,
     );
   }
@@ -18,6 +24,9 @@ class PostModel {
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
+    if (usuario != null) {
+      result.addAll({'usuario': usuario!.toMap()});
+    }
     if (imagePath != null) {
       result.addAll({'imagePath': imagePath});
     }
@@ -27,6 +36,8 @@ class PostModel {
 
   factory PostModel.fromMap(Map<String, dynamic> map) {
     return PostModel(
+      usuario:
+          map['usuario'] != null ? UsuarioModel.fromMap(map['usuario']) : null,
       imagePath: map['imagePath'],
     );
   }
@@ -37,15 +48,17 @@ class PostModel {
       PostModel.fromMap(json.decode(source));
 
   @override
-  String toString() => 'PostModel(imagePath: $imagePath)';
+  String toString() => 'PostModel(usuario: $usuario, imagePath: $imagePath)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is PostModel && other.imagePath == imagePath;
+    return other is PostModel &&
+        other.usuario == usuario &&
+        other.imagePath == imagePath;
   }
 
   @override
-  int get hashCode => imagePath.hashCode;
+  int get hashCode => usuario.hashCode ^ imagePath.hashCode;
 }

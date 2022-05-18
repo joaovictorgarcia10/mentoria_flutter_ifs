@@ -1,4 +1,4 @@
-import 'package:aula_2/modules/shared/tab_bar_widget.dart';
+import 'package:aula_2/modules/shared/core/tab_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'modules/settings/pages/settings_page.dart';
 

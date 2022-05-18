@@ -1,16 +1,15 @@
-import 'package:aula_2/modules/shared/models/usuario_model.dart';
-import 'package:aula_2/modules/shared/repositories/usuario_repository.dart';
+import 'package:aula_2/modules/home/repositories/home_repository.dart';
+import 'package:aula_2/modules/shared/models/post_model.dart';
 
 class HomeController {
-  final UsuarioRepository repository = UsuarioRepository();
+  final HomeRepository repository = HomeRepository();
 
-  UsuarioModel? usuarioModel;
+  PostModel? postModel;
 
-  HomeController({this.usuarioModel}) {
-    getUsuario();
-  }
+  HomeController({this.postModel});
 
-  void getUsuario() {
-    usuarioModel = repository.getUsuario();
+  Future<void> getPosts() async {
+    final result = await repository.getPosts();
+    postModel = result;
   }
 }

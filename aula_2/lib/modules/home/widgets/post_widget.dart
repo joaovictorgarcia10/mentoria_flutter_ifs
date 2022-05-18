@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class PostWidget extends StatelessWidget {
+  final String postImage;
+
   const PostWidget({
     Key? key,
+    required this.postImage,
   }) : super(key: key);
 
   @override
@@ -32,9 +35,9 @@ class PostWidget extends StatelessWidget {
             Expanded(
               child: Container(
                 // height: 400,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage("assets/images/post.jpg"),
+                  image: AssetImage(postImage),
                   fit: BoxFit.cover,
                 )),
               ),

@@ -11,14 +11,14 @@ class UsuarioModel {
   final List<UsuarioModel>? seguidores;
   final List<UsuarioModel>? seguindo;
 
-  UsuarioModel(
+  UsuarioModel({
     this.nome,
     this.descricao,
     this.imagePath,
     this.posts,
     this.seguidores,
     this.seguindo,
-  );
+  });
 
   UsuarioModel copyWith({
     String? nome,
@@ -29,12 +29,12 @@ class UsuarioModel {
     List<UsuarioModel>? seguindo,
   }) {
     return UsuarioModel(
-      nome ?? this.nome,
-      descricao ?? this.descricao,
-      imagePath ?? this.imagePath,
-      posts ?? this.posts,
-      seguidores ?? this.seguidores,
-      seguindo ?? this.seguindo,
+      nome: nome ?? this.nome,
+      descricao: descricao ?? this.descricao,
+      imagePath: imagePath ?? this.imagePath,
+      posts: posts ?? this.posts,
+      seguidores: seguidores ?? this.seguidores,
+      seguindo: seguindo ?? this.seguindo,
     );
   }
 
@@ -51,14 +51,13 @@ class UsuarioModel {
       result.addAll({'imagePath': imagePath});
     }
     if (posts != null) {
-      result.addAll({'posts': posts!.map((x) => x?.toMap()).toList()});
+      result.addAll({'posts': posts!.map((x) => x.toMap()).toList()});
     }
     if (seguidores != null) {
-      result
-          .addAll({'seguidores': seguidores!.map((x) => x?.toMap()).toList()});
+      result.addAll({'seguidores': seguidores!.map((x) => x.toMap()).toList()});
     }
     if (seguindo != null) {
-      result.addAll({'seguindo': seguindo!.map((x) => x?.toMap()).toList()});
+      result.addAll({'seguindo': seguindo!.map((x) => x.toMap()).toList()});
     }
 
     return result;
@@ -66,17 +65,17 @@ class UsuarioModel {
 
   factory UsuarioModel.fromMap(Map<String, dynamic> map) {
     return UsuarioModel(
-      map['nome'],
-      map['descricao'],
-      map['imagePath'],
-      map['posts'] != null
+      nome: map['nome'],
+      descricao: map['descricao'],
+      imagePath: map['imagePath'],
+      posts: map['posts'] != null
           ? List<PostModel>.from(map['posts']?.map((x) => PostModel.fromMap(x)))
           : null,
-      map['seguidores'] != null
+      seguidores: map['seguidores'] != null
           ? List<UsuarioModel>.from(
               map['seguidores']?.map((x) => UsuarioModel.fromMap(x)))
           : null,
-      map['seguindo'] != null
+      seguindo: map['seguindo'] != null
           ? List<UsuarioModel>.from(
               map['seguindo']?.map((x) => UsuarioModel.fromMap(x)))
           : null,
