@@ -24,6 +24,12 @@ class _$HomeEventTearOff {
       params: params,
     );
   }
+
+  _$HomeEventSaveEndereco saveEndereco({required EnderecoModel model}) {
+    return _$HomeEventSaveEndereco(
+      model: model,
+    );
+  }
 }
 
 /// @nodoc
@@ -31,43 +37,43 @@ const $HomeEvent = _$HomeEventTearOff();
 
 /// @nodoc
 mixin _$HomeEvent {
-  BuscarEndrecoParams get params => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuscarEndrecoParams params) buscarEndereco,
+    required TResult Function(EnderecoModel model) saveEndereco,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$HomeEventBuscarEndereco value) buscarEndereco,
+    required TResult Function(_$HomeEventSaveEndereco value) saveEndereco,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $HomeEventCopyWith<HomeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -75,7 +81,6 @@ mixin _$HomeEvent {
 abstract class $HomeEventCopyWith<$Res> {
   factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
       _$HomeEventCopyWithImpl<$Res>;
-  $Res call({BuscarEndrecoParams params});
 }
 
 /// @nodoc
@@ -85,27 +90,13 @@ class _$HomeEventCopyWithImpl<$Res> implements $HomeEventCopyWith<$Res> {
   final HomeEvent _value;
   // ignore: unused_field
   final $Res Function(HomeEvent) _then;
-
-  @override
-  $Res call({
-    Object? params = freezed,
-  }) {
-    return _then(_value.copyWith(
-      params: params == freezed
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as BuscarEndrecoParams,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$HomeEventBuscarEnderecoCopyWith<$Res>
-    implements $HomeEventCopyWith<$Res> {
+abstract class _$$HomeEventBuscarEnderecoCopyWith<$Res> {
   factory _$$HomeEventBuscarEnderecoCopyWith(_$HomeEventBuscarEndereco value,
           $Res Function(_$HomeEventBuscarEndereco) then) =
       __$$HomeEventBuscarEnderecoCopyWithImpl<$Res>;
-  @override
   $Res call({BuscarEndrecoParams params});
 }
 
@@ -169,6 +160,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuscarEndrecoParams params) buscarEndereco,
+    required TResult Function(EnderecoModel model) saveEndereco,
   }) {
     return buscarEndereco(params);
   }
@@ -177,6 +169,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
   }) {
     return buscarEndereco?.call(params);
   }
@@ -185,6 +178,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
     required TResult orElse(),
   }) {
     if (buscarEndereco != null) {
@@ -197,6 +191,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$HomeEventBuscarEndereco value) buscarEndereco,
+    required TResult Function(_$HomeEventSaveEndereco value) saveEndereco,
   }) {
     return buscarEndereco(this);
   }
@@ -205,6 +200,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
   }) {
     return buscarEndereco?.call(this);
   }
@@ -213,6 +209,7 @@ class _$_$HomeEventBuscarEndereco implements _$HomeEventBuscarEndereco {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
     required TResult orElse(),
   }) {
     if (buscarEndereco != null) {
@@ -226,10 +223,144 @@ abstract class _$HomeEventBuscarEndereco implements HomeEvent {
   const factory _$HomeEventBuscarEndereco(
       {required BuscarEndrecoParams params}) = _$_$HomeEventBuscarEndereco;
 
-  @override
   BuscarEndrecoParams get params;
-  @override
   @JsonKey(ignore: true)
   _$$HomeEventBuscarEnderecoCopyWith<_$HomeEventBuscarEndereco> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeEventSaveEnderecoCopyWith<$Res> {
+  factory _$$HomeEventSaveEnderecoCopyWith(_$HomeEventSaveEndereco value,
+          $Res Function(_$HomeEventSaveEndereco) then) =
+      __$$HomeEventSaveEnderecoCopyWithImpl<$Res>;
+  $Res call({EnderecoModel model});
+}
+
+/// @nodoc
+class __$$HomeEventSaveEnderecoCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$$HomeEventSaveEnderecoCopyWith<$Res> {
+  __$$HomeEventSaveEnderecoCopyWithImpl(_$HomeEventSaveEndereco _value,
+      $Res Function(_$HomeEventSaveEndereco) _then)
+      : super(_value, (v) => _then(v as _$HomeEventSaveEndereco));
+
+  @override
+  _$HomeEventSaveEndereco get _value => super._value as _$HomeEventSaveEndereco;
+
+  @override
+  $Res call({
+    Object? model = freezed,
+  }) {
+    return _then(_$HomeEventSaveEndereco(
+      model: model == freezed
+          ? _value.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as EnderecoModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_$HomeEventSaveEndereco implements _$HomeEventSaveEndereco {
+  const _$_$HomeEventSaveEndereco({required this.model});
+
+  @override
+  final EnderecoModel model;
+
+  @override
+  String toString() {
+    return 'HomeEvent.saveEndereco(model: $model)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeEventSaveEndereco &&
+            const DeepCollectionEquality().equals(other.model, model));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(model));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$HomeEventSaveEnderecoCopyWith<_$HomeEventSaveEndereco> get copyWith =>
+      __$$HomeEventSaveEnderecoCopyWithImpl<_$HomeEventSaveEndereco>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuscarEndrecoParams params) buscarEndereco,
+    required TResult Function(EnderecoModel model) saveEndereco,
+  }) {
+    return saveEndereco(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
+  }) {
+    return saveEndereco?.call(model);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuscarEndrecoParams params)? buscarEndereco,
+    TResult Function(EnderecoModel model)? saveEndereco,
+    required TResult orElse(),
+  }) {
+    if (saveEndereco != null) {
+      return saveEndereco(model);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$HomeEventBuscarEndereco value) buscarEndereco,
+    required TResult Function(_$HomeEventSaveEndereco value) saveEndereco,
+  }) {
+    return saveEndereco(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
+  }) {
+    return saveEndereco?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$HomeEventBuscarEndereco value)? buscarEndereco,
+    TResult Function(_$HomeEventSaveEndereco value)? saveEndereco,
+    required TResult orElse(),
+  }) {
+    if (saveEndereco != null) {
+      return saveEndereco(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$HomeEventSaveEndereco implements HomeEvent {
+  const factory _$HomeEventSaveEndereco({required EnderecoModel model}) =
+      _$_$HomeEventSaveEndereco;
+
+  EnderecoModel get model;
+  @JsonKey(ignore: true)
+  _$$HomeEventSaveEnderecoCopyWith<_$HomeEventSaveEndereco> get copyWith =>
       throw _privateConstructorUsedError;
 }

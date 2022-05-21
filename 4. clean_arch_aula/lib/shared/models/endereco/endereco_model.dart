@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:clean_arch_aula/modules/home/domain/entities/endereco.dart';
+import 'package:clean_arch_aula/shared/models/endereco/endereco.dart';
 
 class EnderecoModel extends Endereco {
   EnderecoModel({

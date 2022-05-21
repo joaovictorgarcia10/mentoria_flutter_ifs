@@ -6,8 +6,9 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
     return MaterialApp.router(
-      title: 'My Smart App',
+      title: 'Clean Architecture Aula',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,

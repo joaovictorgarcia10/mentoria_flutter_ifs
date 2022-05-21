@@ -32,10 +32,15 @@ class _$HomeStateTearOff {
     );
   }
 
-  _$HomeStateSuccess success({required Endereco endereco}) {
-    return _$HomeStateSuccess(
+  _$HomeStateBuscarEnderecoSuccess buscarEnderecoSuccess(
+      {required EnderecoModel endereco}) {
+    return _$HomeStateBuscarEnderecoSuccess(
       endereco: endereco,
     );
+  }
+
+  _$HomeStateSaveEnderecoSuccess saveEnderecoSuccess() {
+    return const _$HomeStateSaveEnderecoSuccess();
   }
 }
 
@@ -49,7 +54,8 @@ mixin _$HomeState {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(Failure failure) failure,
-    required TResult Function(Endereco endereco) success,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +63,8 @@ mixin _$HomeState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +72,8 @@ mixin _$HomeState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,7 +82,10 @@ mixin _$HomeState {
     required TResult Function(_$HomeStateEmpty value) empty,
     required TResult Function(_$HomeStateLoading value) loading,
     required TResult Function(_$HomeStateFailure value) failure,
-    required TResult Function(_$HomeStateSuccess value) success,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,7 +93,9 @@ mixin _$HomeState {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,7 +103,9 @@ mixin _$HomeState {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,7 +169,8 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(Failure failure) failure,
-    required TResult Function(Endereco endereco) success,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
   }) {
     return empty();
   }
@@ -165,7 +181,8 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
   }) {
     return empty?.call();
   }
@@ -176,7 +193,8 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -191,7 +209,10 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     required TResult Function(_$HomeStateEmpty value) empty,
     required TResult Function(_$HomeStateLoading value) loading,
     required TResult Function(_$HomeStateFailure value) failure,
-    required TResult Function(_$HomeStateSuccess value) success,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
   }) {
     return empty(this);
   }
@@ -202,7 +223,9 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
   }) {
     return empty?.call(this);
   }
@@ -213,7 +236,9 @@ class _$_$HomeStateEmpty implements _$HomeStateEmpty {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -271,7 +296,8 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(Failure failure) failure,
-    required TResult Function(Endereco endereco) success,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
   }) {
     return loading();
   }
@@ -282,7 +308,8 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
   }) {
     return loading?.call();
   }
@@ -293,7 +320,8 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -308,7 +336,10 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     required TResult Function(_$HomeStateEmpty value) empty,
     required TResult Function(_$HomeStateLoading value) loading,
     required TResult Function(_$HomeStateFailure value) failure,
-    required TResult Function(_$HomeStateSuccess value) success,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
   }) {
     return loading(this);
   }
@@ -319,7 +350,9 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
   }) {
     return loading?.call(this);
   }
@@ -330,7 +363,9 @@ class _$_$HomeStateLoading implements _$HomeStateLoading {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -412,7 +447,8 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(Failure failure) failure,
-    required TResult Function(Endereco endereco) success,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
   }) {
     return failure(this.failure);
   }
@@ -423,7 +459,8 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
   }) {
     return failure?.call(this.failure);
   }
@@ -434,7 +471,8 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -449,7 +487,10 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     required TResult Function(_$HomeStateEmpty value) empty,
     required TResult Function(_$HomeStateLoading value) loading,
     required TResult Function(_$HomeStateFailure value) failure,
-    required TResult Function(_$HomeStateSuccess value) success,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
   }) {
     return failure(this);
   }
@@ -460,7 +501,9 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
   }) {
     return failure?.call(this);
   }
@@ -471,7 +514,9 @@ class _$_$HomeStateFailure implements _$HomeStateFailure {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -492,55 +537,59 @@ abstract class _$HomeStateFailure implements HomeState {
 }
 
 /// @nodoc
-abstract class _$$HomeStateSuccessCopyWith<$Res> {
-  factory _$$HomeStateSuccessCopyWith(
-          _$HomeStateSuccess value, $Res Function(_$HomeStateSuccess) then) =
-      __$$HomeStateSuccessCopyWithImpl<$Res>;
-  $Res call({Endereco endereco});
+abstract class _$$HomeStateBuscarEnderecoSuccessCopyWith<$Res> {
+  factory _$$HomeStateBuscarEnderecoSuccessCopyWith(
+          _$HomeStateBuscarEnderecoSuccess value,
+          $Res Function(_$HomeStateBuscarEnderecoSuccess) then) =
+      __$$HomeStateBuscarEnderecoSuccessCopyWithImpl<$Res>;
+  $Res call({EnderecoModel endereco});
 }
 
 /// @nodoc
-class __$$HomeStateSuccessCopyWithImpl<$Res>
+class __$$HomeStateBuscarEnderecoSuccessCopyWithImpl<$Res>
     extends _$HomeStateCopyWithImpl<$Res>
-    implements _$$HomeStateSuccessCopyWith<$Res> {
-  __$$HomeStateSuccessCopyWithImpl(
-      _$HomeStateSuccess _value, $Res Function(_$HomeStateSuccess) _then)
-      : super(_value, (v) => _then(v as _$HomeStateSuccess));
+    implements _$$HomeStateBuscarEnderecoSuccessCopyWith<$Res> {
+  __$$HomeStateBuscarEnderecoSuccessCopyWithImpl(
+      _$HomeStateBuscarEnderecoSuccess _value,
+      $Res Function(_$HomeStateBuscarEnderecoSuccess) _then)
+      : super(_value, (v) => _then(v as _$HomeStateBuscarEnderecoSuccess));
 
   @override
-  _$HomeStateSuccess get _value => super._value as _$HomeStateSuccess;
+  _$HomeStateBuscarEnderecoSuccess get _value =>
+      super._value as _$HomeStateBuscarEnderecoSuccess;
 
   @override
   $Res call({
     Object? endereco = freezed,
   }) {
-    return _then(_$HomeStateSuccess(
+    return _then(_$HomeStateBuscarEnderecoSuccess(
       endereco: endereco == freezed
           ? _value.endereco
           : endereco // ignore: cast_nullable_to_non_nullable
-              as Endereco,
+              as EnderecoModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_$HomeStateSuccess implements _$HomeStateSuccess {
-  const _$_$HomeStateSuccess({required this.endereco});
+class _$_$HomeStateBuscarEnderecoSuccess
+    implements _$HomeStateBuscarEnderecoSuccess {
+  const _$_$HomeStateBuscarEnderecoSuccess({required this.endereco});
 
   @override
-  final Endereco endereco;
+  final EnderecoModel endereco;
 
   @override
   String toString() {
-    return 'HomeState.success(endereco: $endereco)';
+    return 'HomeState.buscarEnderecoSuccess(endereco: $endereco)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeStateSuccess &&
+            other is _$HomeStateBuscarEnderecoSuccess &&
             const DeepCollectionEquality().equals(other.endereco, endereco));
   }
 
@@ -550,8 +599,9 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
 
   @JsonKey(ignore: true)
   @override
-  _$$HomeStateSuccessCopyWith<_$HomeStateSuccess> get copyWith =>
-      __$$HomeStateSuccessCopyWithImpl<_$HomeStateSuccess>(this, _$identity);
+  _$$HomeStateBuscarEnderecoSuccessCopyWith<_$HomeStateBuscarEnderecoSuccess>
+      get copyWith => __$$HomeStateBuscarEnderecoSuccessCopyWithImpl<
+          _$HomeStateBuscarEnderecoSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -559,9 +609,10 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function(Failure failure) failure,
-    required TResult Function(Endereco endereco) success,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
   }) {
-    return success(endereco);
+    return buscarEnderecoSuccess(endereco);
   }
 
   @override
@@ -570,9 +621,10 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
   }) {
-    return success?.call(endereco);
+    return buscarEnderecoSuccess?.call(endereco);
   }
 
   @override
@@ -581,11 +633,12 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function(Failure failure)? failure,
-    TResult Function(Endereco endereco)? success,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(endereco);
+    if (buscarEnderecoSuccess != null) {
+      return buscarEnderecoSuccess(endereco);
     }
     return orElse();
   }
@@ -596,9 +649,12 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     required TResult Function(_$HomeStateEmpty value) empty,
     required TResult Function(_$HomeStateLoading value) loading,
     required TResult Function(_$HomeStateFailure value) failure,
-    required TResult Function(_$HomeStateSuccess value) success,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
   }) {
-    return success(this);
+    return buscarEnderecoSuccess(this);
   }
 
   @override
@@ -607,9 +663,11 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
   }) {
-    return success?.call(this);
+    return buscarEnderecoSuccess?.call(this);
   }
 
   @override
@@ -618,22 +676,157 @@ class _$_$HomeStateSuccess implements _$HomeStateSuccess {
     TResult Function(_$HomeStateEmpty value)? empty,
     TResult Function(_$HomeStateLoading value)? loading,
     TResult Function(_$HomeStateFailure value)? failure,
-    TResult Function(_$HomeStateSuccess value)? success,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (buscarEnderecoSuccess != null) {
+      return buscarEnderecoSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class _$HomeStateSuccess implements HomeState {
-  const factory _$HomeStateSuccess({required Endereco endereco}) =
-      _$_$HomeStateSuccess;
+abstract class _$HomeStateBuscarEnderecoSuccess implements HomeState {
+  const factory _$HomeStateBuscarEnderecoSuccess(
+      {required EnderecoModel endereco}) = _$_$HomeStateBuscarEnderecoSuccess;
 
-  Endereco get endereco;
+  EnderecoModel get endereco;
   @JsonKey(ignore: true)
-  _$$HomeStateSuccessCopyWith<_$HomeStateSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$HomeStateBuscarEnderecoSuccessCopyWith<_$HomeStateBuscarEnderecoSuccess>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeStateSaveEnderecoSuccessCopyWith<$Res> {
+  factory _$$HomeStateSaveEnderecoSuccessCopyWith(
+          _$HomeStateSaveEnderecoSuccess value,
+          $Res Function(_$HomeStateSaveEnderecoSuccess) then) =
+      __$$HomeStateSaveEnderecoSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HomeStateSaveEnderecoSuccessCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res>
+    implements _$$HomeStateSaveEnderecoSuccessCopyWith<$Res> {
+  __$$HomeStateSaveEnderecoSuccessCopyWithImpl(
+      _$HomeStateSaveEnderecoSuccess _value,
+      $Res Function(_$HomeStateSaveEnderecoSuccess) _then)
+      : super(_value, (v) => _then(v as _$HomeStateSaveEnderecoSuccess));
+
+  @override
+  _$HomeStateSaveEnderecoSuccess get _value =>
+      super._value as _$HomeStateSaveEnderecoSuccess;
+}
+
+/// @nodoc
+
+class _$_$HomeStateSaveEnderecoSuccess
+    implements _$HomeStateSaveEnderecoSuccess {
+  const _$_$HomeStateSaveEnderecoSuccess();
+
+  @override
+  String toString() {
+    return 'HomeState.saveEnderecoSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeStateSaveEnderecoSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(EnderecoModel endereco) buscarEnderecoSuccess,
+    required TResult Function() saveEnderecoSuccess,
+  }) {
+    return saveEnderecoSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(Failure failure)? failure,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
+  }) {
+    return saveEnderecoSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function(Failure failure)? failure,
+    TResult Function(EnderecoModel endereco)? buscarEnderecoSuccess,
+    TResult Function()? saveEnderecoSuccess,
+    required TResult orElse(),
+  }) {
+    if (saveEnderecoSuccess != null) {
+      return saveEnderecoSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$HomeStateEmpty value) empty,
+    required TResult Function(_$HomeStateLoading value) loading,
+    required TResult Function(_$HomeStateFailure value) failure,
+    required TResult Function(_$HomeStateBuscarEnderecoSuccess value)
+        buscarEnderecoSuccess,
+    required TResult Function(_$HomeStateSaveEnderecoSuccess value)
+        saveEnderecoSuccess,
+  }) {
+    return saveEnderecoSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_$HomeStateEmpty value)? empty,
+    TResult Function(_$HomeStateLoading value)? loading,
+    TResult Function(_$HomeStateFailure value)? failure,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
+  }) {
+    return saveEnderecoSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$HomeStateEmpty value)? empty,
+    TResult Function(_$HomeStateLoading value)? loading,
+    TResult Function(_$HomeStateFailure value)? failure,
+    TResult Function(_$HomeStateBuscarEnderecoSuccess value)?
+        buscarEnderecoSuccess,
+    TResult Function(_$HomeStateSaveEnderecoSuccess value)? saveEnderecoSuccess,
+    required TResult orElse(),
+  }) {
+    if (saveEnderecoSuccess != null) {
+      return saveEnderecoSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$HomeStateSaveEnderecoSuccess implements HomeState {
+  const factory _$HomeStateSaveEnderecoSuccess() =
+      _$_$HomeStateSaveEnderecoSuccess;
 }
