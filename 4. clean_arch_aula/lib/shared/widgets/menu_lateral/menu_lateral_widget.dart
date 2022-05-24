@@ -40,7 +40,6 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                   ),
                 ),
               ),
-              const Divider(thickness: 1),
               const SizedBox(height: 10.0),
               Card(
                 shape: RoundedRectangleBorder(

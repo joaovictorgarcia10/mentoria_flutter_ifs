@@ -4,7 +4,6 @@ import 'package:clean_arch_aula/modules/home/data/datasources/home_datasource.da
 import 'package:clean_arch_aula/modules/home/data/repositories/home_repository_impl.dart';
 import 'package:clean_arch_aula/modules/home/domain/repositories/home_repository.dart';
 import 'package:clean_arch_aula/modules/home/domain/usecases/buscar_endreco.dart';
-import 'package:clean_arch_aula/modules/home/domain/usecases/save_endereco.dart';
 import 'package:clean_arch_aula/modules/home/presentation/bloc/home_bloc.dart';
 import 'package:clean_arch_aula/modules/home/presentation/bloc/home_event.dart';
 import 'package:clean_arch_aula/modules/home/presentation/bloc/home_state.dart';

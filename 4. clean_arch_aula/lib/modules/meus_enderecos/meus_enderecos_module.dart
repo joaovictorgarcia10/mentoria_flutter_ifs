@@ -3,7 +3,6 @@ import 'package:clean_arch_aula/modules/meus_enderecos/data/repositories/meus_en
 import 'package:clean_arch_aula/modules/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
 import 'package:clean_arch_aula/modules/meus_enderecos/domain/usecases/delete_endereco.dart';
 import 'package:clean_arch_aula/modules/meus_enderecos/domain/usecases/get_lista_enderecos.dart';
-import 'package:clean_arch_aula/modules/home/domain/usecases/save_endereco.dart';
 import 'package:clean_arch_aula/modules/meus_enderecos/presentation/bloc/meus_enderecos_bloc.dart';
 import 'package:clean_arch_aula/modules/meus_enderecos/presentation/meus_enderecos_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -20,10 +19,12 @@ class MeusEnderecosModule extends Module {
     Bind((i) => DeleteEndereco(i<MeusEnderecosRepository>())),
 
     // Blocs
-    Bind((i) => MeusEnderecosBloc(
-          i<DeleteEndereco>(),
-          i<GetListaEnderecos>(),
-        )),
+    Bind(
+      (i) => MeusEnderecosBloc(
+        i<DeleteEndereco>(),
+        i<GetListaEnderecos>(),
+      ),
+    ),
   ];
 
   @override
