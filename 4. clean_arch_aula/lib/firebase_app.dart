@@ -3,7 +3,6 @@ import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:clean_arch_aula/shared/widgets/button/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:rxdart/subjects.dart';
 
 enum FirebaseStatus { loading, error, success }
 
@@ -15,17 +14,19 @@ class FirebaseWidget extends StatefulWidget {
 }
 
 class FirebaseWidgetState extends State<FirebaseWidget> {
-  final firebaseStatus =
-      BehaviorSubject<FirebaseStatus>.seeded(FirebaseStatus.loading);
+  final firebaseStatus = ValueNotifier<FirebaseStatus>(FirebaseStatus.loading);
 
   void _initApplication() async {
     try {
-      firebaseStatus.sink.add(FirebaseStatus.loading);
+      firebaseStatus.value = FirebaseStatus.loading;
       await Future.delayed(const Duration(seconds: 3));
       await Firebase.initializeApp();
-      firebaseStatus.sink.add(FirebaseStatus.success);
+      firebaseStatus.value = FirebaseStatus.success;
+
+      // ignore: avoid_print
+      print("Firebase Started!");
     } catch (e) {
-      firebaseStatus.sink.addError(e);
+      firebaseStatus.value = FirebaseStatus.error;
     }
   }
 
@@ -36,20 +37,13 @@ class FirebaseWidgetState extends State<FirebaseWidget> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    firebaseStatus.close();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: firebaseStatus,
-      initialData: FirebaseStatus.loading,
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return _firebaseErrorWidget(onTap: _initApplication);
-        } else if (snapshot.data == FirebaseStatus.success) {
+    return ValueListenableBuilder(
+      valueListenable: firebaseStatus,
+      builder: (_, status, __) {
+        if (status == FirebaseStatus.error) {
+          return _firebaseErrorWidget(_initApplication);
+        } else if (status == FirebaseStatus.success) {
           return const AppWidget();
         } else {
           return const Material(
@@ -63,19 +57,20 @@ class FirebaseWidgetState extends State<FirebaseWidget> {
     );
   }
 
-  Widget _firebaseErrorWidget({required VoidCallback onTap}) {
+  Widget _firebaseErrorWidget(VoidCallback onTap) {
     return MaterialApp(
       theme: ThemeData(brightness: Brightness.dark),
+      debugShowCheckedModeBanner: false,
       home: Material(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(15.0),
           child: Center(
             child: Card(
               elevation: 10,
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(22))),
               child: SizedBox(
-                height: 200.0,
+                height: 250.0,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
@@ -83,11 +78,17 @@ class FirebaseWidgetState extends State<FirebaseWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const Text(
-                        "Tivemos um erro inesperado, tente novamente mais tarde.",
+                        "Falha de Conexão",
                         style: AppTextStyles.title,
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 20.0),
+                      const Text(
+                        "Tivemos uma falha de conexão e já estamos trabalhando para solucionar este problema, por favor, tente novamente mais tarde.",
+                        style: AppTextStyles.bodyText,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 30.0),
                       ButtonWidget(
                         title: "Tentar novamente",
                         onTap: onTap,

@@ -17,17 +17,20 @@ class ButtonWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 60.0,
+        height: 55.0,
         width: double.infinity,
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: Border.all(width: 1),
           color: color,
-          borderRadius: BorderRadius.circular(18.0),
+          borderRadius: BorderRadius.circular(22.0),
         ),
         child: Center(
           child: Text(
             title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+            ),
           ),
         ),
       ),

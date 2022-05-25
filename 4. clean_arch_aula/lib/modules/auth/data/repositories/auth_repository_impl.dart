@@ -10,11 +10,18 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({required this.datasource});
 
   @override
-  Future<Either<Failure, User>> doLogin({
+  Future<Either<Failure, User>> doLogin(
+      {required String email, required String password}) async {
+    final result = datasource.doLogin(email: email, password: password);
+    return result;
+  }
+
+  @override
+  Future<Either<Failure, bool>> createAccount({
     required String email,
     required String password,
-  }) async {
-    final result = datasource.doLogin(email: email, password: password);
+  }) {
+    final result = datasource.createAccount(email: email, password: password);
     return result;
   }
 }

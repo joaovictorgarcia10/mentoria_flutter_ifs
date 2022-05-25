@@ -3,42 +3,48 @@ import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
 
 class UserModel extends User {
   UserModel({
-    required String nome,
-    required String senha,
-    required String email,
+    String? nome,
+    String? email,
+    String? photoUrl,
   }) : super(
           nome: nome,
-          senha: senha,
           email: email,
+          photoUrl: photoUrl,
         );
 
   UserModel copyWith({
     String? nome,
     String? email,
-    String? senha,
+    String? photoUrl,
   }) {
     return UserModel(
       nome: nome ?? this.nome,
       email: email ?? this.email,
-      senha: senha ?? this.senha,
+      photoUrl: photoUrl ?? this.photoUrl,
     );
   }
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
-    result.addAll({'nome': nome});
-    result.addAll({'email': email});
-    result.addAll({'senha': senha});
+    if (nome != null) {
+      result.addAll({'nome': nome});
+    }
+    if (email != null) {
+      result.addAll({'email': email});
+    }
+    if (photoUrl != null) {
+      result.addAll({'photoUrl': photoUrl});
+    }
 
     return result;
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      nome: map['nome'] ?? '',
-      email: map['email'] ?? '',
-      senha: map['senha'] ?? '',
+      nome: map['nome'],
+      email: map['email'],
+      photoUrl: map['photoUrl'],
     );
   }
 
@@ -48,18 +54,19 @@ class UserModel extends User {
       UserModel.fromMap(json.decode(source));
 
   @override
-  String toString() => 'User(nome: $nome, email: $email, senha: $senha)';
+  String toString() =>
+      'UserModel(nome: $nome, email: $email, photoUrl: $photoUrl)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is User &&
+    return other is UserModel &&
         other.nome == nome &&
         other.email == email &&
-        other.senha == senha;
+        other.photoUrl == photoUrl;
   }
 
   @override
-  int get hashCode => nome.hashCode ^ email.hashCode ^ senha.hashCode;
+  int get hashCode => nome.hashCode ^ email.hashCode ^ photoUrl.hashCode;
 }

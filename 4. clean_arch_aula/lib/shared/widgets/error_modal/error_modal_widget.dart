@@ -15,7 +15,7 @@ class ErrorModalWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(25.0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
+        height: MediaQuery.of(context).size.height * 0.35,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

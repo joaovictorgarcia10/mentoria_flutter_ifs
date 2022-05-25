@@ -1,0 +1,88 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "1. rede_social_mockup",
+            "cwd": "1. rede_social_mockup",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "1. rede_social_mockup (profile mode)",
+            "cwd": "1. rede_social_mockup",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "1. rede_social_mockup (release mode)",
+            "cwd": "1. rede_social_mockup",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "2. aula_formularios",
+            "cwd": "2. aula_formularios",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "2. aula_formularios (profile mode)",
+            "cwd": "2. aula_formularios",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "2. aula_formularios (release mode)",
+            "cwd": "2. aula_formularios",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "3. json_placeholher_example",
+            "cwd": "3. json_placeholher_example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "3. json_placeholher_example (profile mode)",
+            "cwd": "3. json_placeholher_example",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "3. json_placeholher_example (release mode)",
+            "cwd": "3. json_placeholher_example",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "4. clean_arch_aula",
+            "cwd": "4. clean_arch_aula",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "4. clean_arch_aula (profile mode)",
+            "cwd": "4. clean_arch_aula",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "4. clean_arch_aula (release mode)",
+            "cwd": "4. clean_arch_aula",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

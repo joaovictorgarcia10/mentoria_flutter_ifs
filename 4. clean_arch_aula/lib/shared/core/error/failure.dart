@@ -13,3 +13,18 @@ class NotFoundFailure extends Failure {
   @override
   String get message => "Endereço não encontrado...";
 }
+
+class UserNotFoundFailure extends Failure {
+  @override
+  String get message => "Endereço de email não encontrado.";
+}
+
+class IncorrectPasswordFailure extends Failure {
+  @override
+  String get message => "Email ou senha incorretos.";
+}
+
+class EmailAlreadyInUseFailure extends Failure {
+  @override
+  String get message => "Já existe uma conta vinculada a este email.";
+}

@@ -8,9 +8,16 @@ class DeleteEndereco
   DeleteEndereco(this._meusEnderecosRepository);
 
   @override
-  Stream<MeusEnderecosState> call(DeleteEnderecoParams params) {
-    // TODO: implement call
-    throw UnimplementedError();
+  Stream<MeusEnderecosState> call(DeleteEnderecoParams params) async* {
+    yield const MeusEnderecosState.loading();
+
+    final result = await _meusEnderecosRepository.deleteEndereco(
+        indexEndereco: params.index);
+
+    yield result.fold(
+      (l) => MeusEnderecosState.failure(failure: l),
+      (r) => const MeusEnderecosState.deleteEnderecoSuccess(),
+    );
   }
 }
 

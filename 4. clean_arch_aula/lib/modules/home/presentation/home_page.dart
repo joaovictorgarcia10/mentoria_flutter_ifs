@@ -1,8 +1,4 @@
 import 'dart:async';
-
-import 'package:clean_arch_aula/modules/home/data/datasources/home_datasource.dart';
-import 'package:clean_arch_aula/modules/home/data/repositories/home_repository_impl.dart';
-import 'package:clean_arch_aula/modules/home/domain/repositories/home_repository.dart';
 import 'package:clean_arch_aula/modules/home/domain/usecases/buscar_endreco.dart';
 import 'package:clean_arch_aula/modules/home/presentation/bloc/home_bloc.dart';
 import 'package:clean_arch_aula/modules/home/presentation/bloc/home_event.dart';
@@ -12,7 +8,7 @@ import 'package:clean_arch_aula/shared/utils/masks/app_masks.dart';
 import 'package:clean_arch_aula/shared/utils/validators/app_validadors.dart';
 import 'package:clean_arch_aula/shared/widgets/button/button_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/endereco_card/endereco_card_widget.dart';
-import 'package:clean_arch_aula/shared/widgets/endereco_inexistente_card/endereco_inexistente_card_widget.dart';
+import 'package:clean_arch_aula/shared/widgets/message_card/message_card_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/menu_lateral/menu_lateral_widget.dart';
@@ -72,6 +68,9 @@ class _HomePageState extends State<HomePage> {
             builder: (context) => ErrorModalWidget(message: failure.message),
           );
         },
+        buscarEnderecoSuccess: (endreco) {
+          Navigator.pop(context);
+        },
         orElse: () {},
       );
     });
@@ -105,13 +104,12 @@ class _HomePageState extends State<HomePage> {
                     keyboardType: TextInputType.number,
                     validator: (text) => AppValidadors().cepValidator(text),
                   ),
-                  const SizedBox(height: 150.0),
+                  const SizedBox(height: 80.0),
                   BlocBuilder<HomeBloc, HomeState>(
                       bloc: bloc,
-                      builder: (_, state) {
+                      builder: (context, state) {
                         return state.maybeWhen(
                           buscarEnderecoSuccess: (endereco) {
-                            Navigator.pop(context);
                             if (endereco.logradouro != null) {
                               return EnderecoCardWidget(
                                 endereco: endereco,
@@ -129,14 +127,19 @@ class _HomePageState extends State<HomePage> {
                                             "Quer mesmo salvar este endereço?",
                                         onConfirm: () {
                                           Navigator.pop(context);
-                                          bloc.add(HomeEvent.saveEndereco(
-                                              model: endereco));
+                                          bloc.add(
+                                            HomeEvent.saveEndereco(
+                                                model: endereco),
+                                          );
                                         });
                                   },
                                 ),
                               );
                             }
-                            return const EnderecoInexistenteCardWidget();
+                            return const MessageCardWidget(
+                              message:
+                                  "Não encontramos nenhum entedereço neste CEP, por favor busque outro.",
+                            );
                           },
                           orElse: () => const Text(
                             "Aqui você pode fazer a busca de um endereço, apenas informando seu CEP.",
@@ -145,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         );
                       }),
-                  const SizedBox(height: 150.0),
+                  const SizedBox(height: 100.0),
                   ButtonWidget(
                     title: "Buscar Endereço",
                     color: Colors.green,

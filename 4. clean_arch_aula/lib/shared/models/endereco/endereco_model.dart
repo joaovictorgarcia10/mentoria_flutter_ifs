@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:clean_arch_aula/shared/models/endereco/endereco.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EnderecoModel extends Endereco {
   EnderecoModel({
@@ -9,20 +10,18 @@ class EnderecoModel extends Endereco {
     String? bairro,
     String? localidade,
     String? uf,
-    String? ibge,
-    String? gia,
     String? ddd,
-    String? siafi,
+    DocumentReference? documentReference,
   }) : super(
-            cep: cep,
-            logradouro: logradouro,
-            complemento: complemento,
-            bairro: bairro,
-            ddd: ddd,
-            gia: gia,
-            ibge: ibge,
-            localidade: localidade,
-            siafi: siafi);
+          cep: cep,
+          logradouro: logradouro,
+          complemento: complemento,
+          bairro: bairro,
+          localidade: localidade,
+          uf: uf,
+          ddd: ddd,
+          documentReference: documentReference,
+        );
 
   EnderecoModel copyWith({
     String? cep,
@@ -31,10 +30,8 @@ class EnderecoModel extends Endereco {
     String? bairro,
     String? localidade,
     String? uf,
-    String? ibge,
-    String? gia,
     String? ddd,
-    String? siafi,
+    DocumentReference? documentReference,
   }) {
     return EnderecoModel(
       cep: cep ?? this.cep,
@@ -43,10 +40,8 @@ class EnderecoModel extends Endereco {
       bairro: bairro ?? this.bairro,
       localidade: localidade ?? this.localidade,
       uf: uf ?? this.uf,
-      ibge: ibge ?? this.ibge,
-      gia: gia ?? this.gia,
       ddd: ddd ?? this.ddd,
-      siafi: siafi ?? this.siafi,
+      documentReference: documentReference ?? this.documentReference,
     );
   }
 
@@ -71,17 +66,8 @@ class EnderecoModel extends Endereco {
     if (uf != null) {
       result.addAll({'uf': uf});
     }
-    if (ibge != null) {
-      result.addAll({'ibge': ibge});
-    }
-    if (gia != null) {
-      result.addAll({'gia': gia});
-    }
     if (ddd != null) {
       result.addAll({'ddd': ddd});
-    }
-    if (siafi != null) {
-      result.addAll({'siafi': siafi});
     }
 
     return result;
@@ -95,10 +81,7 @@ class EnderecoModel extends Endereco {
       bairro: map['bairro'],
       localidade: map['localidade'],
       uf: map['uf'],
-      ibge: map['ibge'],
-      gia: map['gia'],
       ddd: map['ddd'],
-      siafi: map['siafi'],
     );
   }
 
@@ -109,6 +92,19 @@ class EnderecoModel extends Endereco {
 
   @override
   String toString() {
-    return 'EnderecoModel(cep: $cep, logradouro: $logradouro, complemento: $complemento, bairro: $bairro, localidade: $localidade, uf: $uf, ibge: $ibge, gia: $gia, ddd: $ddd, siafi: $siafi)';
+    return 'EnderecoModel(cep: $cep, logradouro: $logradouro, complemento: $complemento, bairro: $bairro, localidade: $localidade, uf: $uf, ddd: $ddd, documentReference: $documentReference)';
+  }
+
+  factory EnderecoModel.fromFirebase(DocumentSnapshot doc) {
+    return EnderecoModel(
+      cep: doc['cep'],
+      logradouro: doc['logradouro'],
+      complemento: doc['complemento'],
+      bairro: doc['bairro'],
+      localidade: doc['localidade'],
+      uf: doc['uf'],
+      ddd: doc['ddd'],
+      documentReference: doc.reference,
+    );
   }
 }

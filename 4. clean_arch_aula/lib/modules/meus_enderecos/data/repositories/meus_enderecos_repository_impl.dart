@@ -10,21 +10,14 @@ class MeusEnderecosRepositoryImpl implements MeusEnderecosRepository {
 
   @override
   Future<Either<Failure, bool>> deleteEndereco({required int indexEndereco}) {
-    // TODO: implement deleteEndereco
-    throw UnimplementedError();
+    final result =
+        _meusEnderecosDatasource.deleteEndereco(indexEndereco: indexEndereco);
+    return result;
   }
 
   @override
   Future<Either<Failure, List<EnderecoModel>>> getListaEnderecos() {
-    // TODO: implement getListaEnderecos
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<Failure, bool>> saveEndereco(
-      {required EnderecoModel endereco}) async {
-    final result =
-        await _meusEnderecosDatasource.saveEndereco(endereco: endereco);
+    final result = _meusEnderecosDatasource.getListaEnderecos();
     return result;
   }
 }

@@ -7,8 +7,12 @@ class GetListaEnderecos implements StreamUseCase<MeusEnderecosState, NoParams> {
   GetListaEnderecos(this._meusEnderecosRepository);
 
   @override
-  Stream<MeusEnderecosState> call([NoParams? params]) {
-    // TODO: implement call
-    throw UnimplementedError();
+  Stream<MeusEnderecosState> call([NoParams? params]) async* {
+    yield const MeusEnderecosState.loading();
+    final result = await _meusEnderecosRepository.getListaEnderecos();
+    yield result.fold(
+      (l) => MeusEnderecosState.failure(failure: l),
+      (r) => MeusEnderecosState.getListaEnderecosSuccess(listaEnderecos: r),
+    );
   }
 }

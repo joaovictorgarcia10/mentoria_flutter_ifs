@@ -11,7 +11,7 @@ class MeusEnderecosBloc extends Bloc<MeusEnderecosEvent, MeusEnderecosState> {
   MeusEnderecosBloc(
     this._deleteEndereco,
     this._getListaEnderecos,
-  ) : super(const MeusEnderecosState.loading());
+  ) : super(const MeusEnderecosState.empty());
 
   @override
   Stream<MeusEnderecosState> mapEventToState(MeusEnderecosEvent event) async* {

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Endereco {
   final String? cep;
   final String? logradouro;
@@ -5,10 +7,8 @@ class Endereco {
   final String? bairro;
   final String? localidade;
   final String? uf;
-  final String? ibge;
-  final String? gia;
   final String? ddd;
-  final String? siafi;
+  final DocumentReference? documentReference;
 
   Endereco({
     this.cep,
@@ -17,9 +17,7 @@ class Endereco {
     this.bairro,
     this.localidade,
     this.uf,
-    this.ibge,
-    this.gia,
     this.ddd,
-    this.siafi,
+    this.documentReference,
   });
 }

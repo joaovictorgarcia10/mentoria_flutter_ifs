@@ -6,8 +6,8 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsFlutterBinding.ensureInitialized();
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Clean Architecture Aula',
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -6,6 +6,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final String label;
   final IconData prefixIcon;
   final IconData? suffixIcon;
+  final VoidCallback? onTapSuffixIcon;
   final String? Function(String? text)? validator;
   final void Function(String? text)? onChanged;
   final TextInputType? keyboardType;
@@ -19,6 +20,7 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.prefixIcon,
     this.obscureText,
     this.suffixIcon,
+    this.onTapSuffixIcon,
     this.validator,
     this.onChanged,
     this.keyboardType,
@@ -37,11 +39,14 @@ class TextFormFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(12.0),
+              Radius.circular(22.0),
             ),
           ),
           prefixIcon: Icon(prefixIcon),
-          suffixIcon: Icon(suffixIcon),
+          suffixIcon: IconButton(
+            icon: Icon(suffixIcon),
+            onPressed: onTapSuffixIcon,
+          ),
           labelText: label,
           labelStyle: const TextStyle(fontWeight: FontWeight.bold),
         ),

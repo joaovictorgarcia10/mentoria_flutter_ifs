@@ -1,11 +1,14 @@
 import 'package:clean_arch_aula/modules/auth/auth_module.dart';
 import 'package:clean_arch_aula/modules/home/home_module.dart';
 import 'package:clean_arch_aula/modules/meus_enderecos/meus_enderecos_module.dart';
+import 'package:clean_arch_aula/shared/models/session/session.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [
+    Bind((i) => Session()),
+  ];
 
   @override
   final List<ModularRoute> routes = [

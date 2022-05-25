@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'app_colors.dart';
 
-// TODO: ajustar aqui
+// TODO: ajustar styles
 class AppTextStyles {
   static const TextStyle title = TextStyle(
     fontSize: 24.0,
@@ -18,10 +18,10 @@ class AppTextStyles {
   );
 
   static const TextStyle bodyText = TextStyle(
-    fontSize: 22.0,
+    fontSize: 16.0,
     letterSpacing: 0.25,
-    fontWeight: FontWeight.w700,
-    color: AppColors.text,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primary,
   );
 
   static const TextStyle inputText = TextStyle(

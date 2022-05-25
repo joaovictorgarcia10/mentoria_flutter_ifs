@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:clean_arch_aula/modules/auth/domain/usecases/do_login.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/login/bloc/login_bloc.dart';
 import 'package:clean_arch_aula/modules/auth/presentation/login/bloc/login_event.dart';
+import 'package:clean_arch_aula/shared/utils/validators/app_validadors.dart';
 import 'package:clean_arch_aula/shared/widgets/button/button_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/loading_modal/loading_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/text_form_field/text_form_field_widget.dart';
@@ -16,23 +17,23 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-  final _controller = Modular.get<LoginBloc>();
+  final _bloc = Modular.get<LoginBloc>();
   late StreamSubscription subscription;
 
+  final _formKey = GlobalKey<FormState>();
   bool obscureTextPassword = true;
 
   TextEditingController emailText = TextEditingController();
-  TextEditingController senhaText = TextEditingController();
+  TextEditingController passwordText = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    subscription = _controller.stream.listen((state) {
+    subscription = _bloc.stream.listen((state) {
       state.maybeWhen(
         success: (user) {
           ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Seja bem vindo ${user.nome}!')));
+              SnackBar(content: Text('Seja bem vindo ${user.email}!')));
           Modular.to.pushReplacementNamed("/home");
         },
         loading: () {
@@ -61,8 +62,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    subscription.cancel();
     super.dispose();
+    subscription.cancel();
+    emailText.dispose();
+    passwordText.dispose();
   }
 
   @override
@@ -75,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 80.0),
+              const SizedBox(height: 60.0),
               RichText(
                 text: const TextSpan(
                   style: TextStyle(
@@ -84,11 +87,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   children: [
                     TextSpan(text: "Bem vindo ao\n"),
-                    TextSpan(text: "Busca CEP App"),
+                    TextSpan(text: "Buscar CEP Brasil."),
                   ],
                 ),
               ),
-              const SizedBox(height: 40.0),
+              const SizedBox(height: 80.0),
               Form(
                 key: _formKey,
                 child: Column(
@@ -97,50 +100,48 @@ class _LoginPageState extends State<LoginPage> {
                       controller: emailText,
                       label: "Email",
                       prefixIcon: Icons.email_outlined,
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return "Este campo deve ser preenchido";
-                        }
-                        return null;
-                      },
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (text) => AppValidadors().emailValidator(text),
                     ),
                     TextFormFieldWidget(
-                      controller: senhaText,
+                      controller: passwordText,
                       label: "Senha",
                       obscureText: obscureTextPassword,
-                      prefixIcon: Icons.lock_outline,
-                      validator: (text) {
-                        if (text == null || text.isEmpty) {
-                          return "Este campo deve ser preenchido";
-                        }
-                        return null;
+                      suffixIcon: obscureTextPassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      onTapSuffixIcon: () {
+                        setState(() {
+                          obscureTextPassword = !obscureTextPassword;
+                        });
                       },
+                      prefixIcon: Icons.vpn_key_outlined,
+                      validator: (text) =>
+                          AppValidadors().passwordValidator(text),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 5.0),
-              Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  child: const Text("Esqueci minha senha."),
-                  onTap: () {
-                    // Modular.to.pushNamed("/esqueceu_senha");
-                  },
-                ),
-              ),
-              const SizedBox(height: 60.0),
+              // TODO: Implementar esqueci senha
+              // const SizedBox(height: 5.0),
+              // Align(
+              //   alignment: Alignment.centerRight,
+              //   child: InkWell(
+              //     child: const Text("Esqueci minha senha."),
+              //     onTap: () {},
+              //   ),
+              // ),
+              const SizedBox(height: 50.0),
               ButtonWidget(
                 title: "Entrar",
                 color: Colors.green,
                 onTap: () async {
                   if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    _controller.add(
+                    _bloc.add(
                       DoLoginEvent.login(
                         params: DoLoginParams(
                           email: emailText.text,
-                          password: senhaText.text,
+                          password: passwordText.text,
                         ),
                       ),
                     );
@@ -151,9 +152,7 @@ class _LoginPageState extends State<LoginPage> {
               ButtonWidget(
                 title: "Criar conta",
                 color: Colors.transparent,
-                onTap: () {
-                  // Modular.to.pushNamed("/cadastro");
-                },
+                onTap: () => Modular.to.pushNamed("/cadastro"),
               ),
             ],
           ),

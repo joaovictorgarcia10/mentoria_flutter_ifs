@@ -4,6 +4,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class MeusEnderecosRepository {
   Future<Either<Failure, List<EnderecoModel>>> getListaEnderecos();
-  Future<Either<Failure, bool>> saveEndereco({required EnderecoModel endereco});
   Future<Either<Failure, bool>> deleteEndereco({required int indexEndereco});
 }
