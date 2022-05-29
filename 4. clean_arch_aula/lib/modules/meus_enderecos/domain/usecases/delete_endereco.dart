@@ -1,23 +1,17 @@
 import 'package:clean_arch_aula/modules/meus_enderecos/domain/repositories/meus_enderecos_repository.dart';
-import 'package:clean_arch_aula/modules/meus_enderecos/presentation/bloc/meus_enderecos_state.dart';
+import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:dartz/dartz.dart';
 
-class DeleteEndereco
-    implements StreamUseCase<MeusEnderecosState, DeleteEnderecoParams> {
+class DeleteEndereco implements UsecaseCore<bool, DeleteEnderecoParams> {
   final MeusEnderecosRepository _meusEnderecosRepository;
   DeleteEndereco(this._meusEnderecosRepository);
 
   @override
-  Stream<MeusEnderecosState> call(DeleteEnderecoParams params) async* {
-    yield const MeusEnderecosState.loading();
-
+  Future<Either<Failure, bool>> call(DeleteEnderecoParams params) async {
     final result = await _meusEnderecosRepository.deleteEndereco(
         indexEndereco: params.index);
-
-    yield result.fold(
-      (l) => MeusEnderecosState.failure(failure: l),
-      (r) => const MeusEnderecosState.deleteEnderecoSuccess(),
-    );
+    return result.fold((l) => Left(l), (r) => Right(r));
   }
 }
 

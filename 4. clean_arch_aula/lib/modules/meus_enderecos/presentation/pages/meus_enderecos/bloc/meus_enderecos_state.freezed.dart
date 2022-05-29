@@ -38,10 +38,6 @@ class _$MeusEnderecosStateTearOff {
       listaEnderecos: listaEnderecos,
     );
   }
-
-  _$MeusEnderecosStateDeleteEnderecoSuccess deleteEnderecoSuccess() {
-    return const _$MeusEnderecosStateDeleteEnderecoSuccess();
-  }
 }
 
 /// @nodoc
@@ -56,7 +52,6 @@ mixin _$MeusEnderecosState {
     required TResult Function(Failure failure) failure,
     required TResult Function(List<EnderecoModel> listaEnderecos)
         getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,7 +61,6 @@ mixin _$MeusEnderecosState {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,7 +70,6 @@ mixin _$MeusEnderecosState {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,8 +81,6 @@ mixin _$MeusEnderecosState {
     required TResult Function(
             _$MeusEnderecosStateGetListaEnderecosSuccess value)
         getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,8 +90,6 @@ mixin _$MeusEnderecosState {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,8 +99,6 @@ mixin _$MeusEnderecosState {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,7 +169,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     required TResult Function(Failure failure) failure,
     required TResult Function(List<EnderecoModel> listaEnderecos)
         getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
   }) {
     return empty();
   }
@@ -195,7 +181,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
   }) {
     return empty?.call();
   }
@@ -208,7 +193,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -226,8 +210,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     required TResult Function(
             _$MeusEnderecosStateGetListaEnderecosSuccess value)
         getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
   }) {
     return empty(this);
   }
@@ -240,8 +222,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
   }) {
     return empty?.call(this);
   }
@@ -254,8 +234,6 @@ class _$_$MeusEnderecosStateEmpty implements _$MeusEnderecosStateEmpty {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -318,7 +296,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     required TResult Function(Failure failure) failure,
     required TResult Function(List<EnderecoModel> listaEnderecos)
         getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
   }) {
     return loading();
   }
@@ -331,7 +308,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
   }) {
     return loading?.call();
   }
@@ -344,7 +320,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -362,8 +337,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     required TResult Function(
             _$MeusEnderecosStateGetListaEnderecosSuccess value)
         getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
   }) {
     return loading(this);
   }
@@ -376,8 +349,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
   }) {
     return loading?.call(this);
   }
@@ -390,8 +361,6 @@ class _$_$MeusEnderecosStateLoading implements _$MeusEnderecosStateLoading {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -478,7 +447,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     required TResult Function(Failure failure) failure,
     required TResult Function(List<EnderecoModel> listaEnderecos)
         getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
   }) {
     return failure(this.failure);
   }
@@ -491,7 +459,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
   }) {
     return failure?.call(this.failure);
   }
@@ -504,7 +471,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -522,8 +488,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     required TResult Function(
             _$MeusEnderecosStateGetListaEnderecosSuccess value)
         getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
   }) {
     return failure(this);
   }
@@ -536,8 +500,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
   }) {
     return failure?.call(this);
   }
@@ -550,8 +512,6 @@ class _$_$MeusEnderecosStateFailure implements _$MeusEnderecosStateFailure {
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -651,7 +611,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     required TResult Function(Failure failure) failure,
     required TResult Function(List<EnderecoModel> listaEnderecos)
         getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
   }) {
     return getListaEnderecosSuccess(listaEnderecos);
   }
@@ -664,7 +623,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
   }) {
     return getListaEnderecosSuccess?.call(listaEnderecos);
   }
@@ -677,7 +635,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     TResult Function(Failure failure)? failure,
     TResult Function(List<EnderecoModel> listaEnderecos)?
         getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (getListaEnderecosSuccess != null) {
@@ -695,8 +652,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     required TResult Function(
             _$MeusEnderecosStateGetListaEnderecosSuccess value)
         getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
   }) {
     return getListaEnderecosSuccess(this);
   }
@@ -709,8 +664,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
   }) {
     return getListaEnderecosSuccess?.call(this);
   }
@@ -723,8 +676,6 @@ class _$_$MeusEnderecosStateGetListaEnderecosSuccess
     TResult Function(_$MeusEnderecosStateFailure value)? failure,
     TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
         getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
     required TResult orElse(),
   }) {
     if (getListaEnderecosSuccess != null) {
@@ -745,145 +696,4 @@ abstract class _$MeusEnderecosStateGetListaEnderecosSuccess
   _$$MeusEnderecosStateGetListaEnderecosSuccessCopyWith<
           _$MeusEnderecosStateGetListaEnderecosSuccess>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$MeusEnderecosStateDeleteEnderecoSuccessCopyWith<$Res> {
-  factory _$$MeusEnderecosStateDeleteEnderecoSuccessCopyWith(
-          _$MeusEnderecosStateDeleteEnderecoSuccess value,
-          $Res Function(_$MeusEnderecosStateDeleteEnderecoSuccess) then) =
-      __$$MeusEnderecosStateDeleteEnderecoSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MeusEnderecosStateDeleteEnderecoSuccessCopyWithImpl<$Res>
-    extends _$MeusEnderecosStateCopyWithImpl<$Res>
-    implements _$$MeusEnderecosStateDeleteEnderecoSuccessCopyWith<$Res> {
-  __$$MeusEnderecosStateDeleteEnderecoSuccessCopyWithImpl(
-      _$MeusEnderecosStateDeleteEnderecoSuccess _value,
-      $Res Function(_$MeusEnderecosStateDeleteEnderecoSuccess) _then)
-      : super(_value,
-            (v) => _then(v as _$MeusEnderecosStateDeleteEnderecoSuccess));
-
-  @override
-  _$MeusEnderecosStateDeleteEnderecoSuccess get _value =>
-      super._value as _$MeusEnderecosStateDeleteEnderecoSuccess;
-}
-
-/// @nodoc
-
-class _$_$MeusEnderecosStateDeleteEnderecoSuccess
-    implements _$MeusEnderecosStateDeleteEnderecoSuccess {
-  const _$_$MeusEnderecosStateDeleteEnderecoSuccess();
-
-  @override
-  String toString() {
-    return 'MeusEnderecosState.deleteEnderecoSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$MeusEnderecosStateDeleteEnderecoSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(Failure failure) failure,
-    required TResult Function(List<EnderecoModel> listaEnderecos)
-        getListaEnderecosSuccess,
-    required TResult Function() deleteEnderecoSuccess,
-  }) {
-    return deleteEnderecoSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(Failure failure)? failure,
-    TResult Function(List<EnderecoModel> listaEnderecos)?
-        getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
-  }) {
-    return deleteEnderecoSuccess?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(Failure failure)? failure,
-    TResult Function(List<EnderecoModel> listaEnderecos)?
-        getListaEnderecosSuccess,
-    TResult Function()? deleteEnderecoSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteEnderecoSuccess != null) {
-      return deleteEnderecoSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_$MeusEnderecosStateEmpty value) empty,
-    required TResult Function(_$MeusEnderecosStateLoading value) loading,
-    required TResult Function(_$MeusEnderecosStateFailure value) failure,
-    required TResult Function(
-            _$MeusEnderecosStateGetListaEnderecosSuccess value)
-        getListaEnderecosSuccess,
-    required TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)
-        deleteEnderecoSuccess,
-  }) {
-    return deleteEnderecoSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_$MeusEnderecosStateEmpty value)? empty,
-    TResult Function(_$MeusEnderecosStateLoading value)? loading,
-    TResult Function(_$MeusEnderecosStateFailure value)? failure,
-    TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
-        getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
-  }) {
-    return deleteEnderecoSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_$MeusEnderecosStateEmpty value)? empty,
-    TResult Function(_$MeusEnderecosStateLoading value)? loading,
-    TResult Function(_$MeusEnderecosStateFailure value)? failure,
-    TResult Function(_$MeusEnderecosStateGetListaEnderecosSuccess value)?
-        getListaEnderecosSuccess,
-    TResult Function(_$MeusEnderecosStateDeleteEnderecoSuccess value)?
-        deleteEnderecoSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteEnderecoSuccess != null) {
-      return deleteEnderecoSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _$MeusEnderecosStateDeleteEnderecoSuccess
-    implements MeusEnderecosState {
-  const factory _$MeusEnderecosStateDeleteEnderecoSuccess() =
-      _$_$MeusEnderecosStateDeleteEnderecoSuccess;
 }

@@ -13,6 +13,4 @@ class MeusEnderecosState with _$MeusEnderecosState {
   const factory MeusEnderecosState.getListaEnderecosSuccess(
           {required List<EnderecoModel> listaEnderecos}) =
       _$MeusEnderecosStateGetListaEnderecosSuccess;
-  const factory MeusEnderecosState.deleteEnderecoSuccess() =
-      _$MeusEnderecosStateDeleteEnderecoSuccess;
 }

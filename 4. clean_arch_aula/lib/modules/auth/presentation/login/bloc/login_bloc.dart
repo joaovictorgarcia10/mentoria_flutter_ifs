@@ -8,15 +8,24 @@ class LoginBloc extends Bloc<DoLoginEvent, DoLoginState> {
 
   LoginBloc(
     this._doLogin,
-  ) : super(const DoLoginState.empty());
+  ) : super(const DoLoginState.empty()) {
+    on<DoLoginEvent>(_onEvent);
+  }
 
-  @override
-  Stream<DoLoginState> mapEventToState(DoLoginEvent event) async* {
-    yield* event.when(
-      login: (params) => _doLogin(DoLoginParams(
-        email: params.email,
-        password: params.password,
-      )),
+  Future<void> _onEvent(
+    DoLoginEvent event,
+    Emitter<DoLoginState> emit,
+  ) async {
+    emit(const DoLoginState.loading());
+    await event.when(
+      login: (params) async {
+        final result = await _doLogin(
+            DoLoginParams(email: params.email, password: params.password));
+        result.fold(
+          (l) => emit(DoLoginState.failure(failure: l)),
+          (r) => emit(DoLoginState.success(user: r)),
+        );
+      },
     );
   }
 }

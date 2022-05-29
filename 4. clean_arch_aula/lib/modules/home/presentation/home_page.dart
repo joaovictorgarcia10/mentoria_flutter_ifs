@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
     _subscription = bloc.stream.listen((state) {
       state.maybeWhen(
         saveEnderecoSuccess: () {
+          Navigator.pop(context);
           Modular.to.pushNamed("/meus_enderecos");
         },
         loading: () {

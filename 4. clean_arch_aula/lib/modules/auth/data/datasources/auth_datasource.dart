@@ -32,6 +32,7 @@ class AuthDatasourceImpl implements AuthDatasource {
           email: credential.user?.email,
           nome: credential.user?.displayName,
           photoUrl: credential.user?.photoURL,
+          userId: credential.user?.uid,
         );
 
         // Salvando sessão de usuário
@@ -60,7 +61,6 @@ class AuthDatasourceImpl implements AuthDatasource {
       // Função do Firebase Auth
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-
       // Retorno ok
       return const Right(true);
     } on FirebaseAuthException catch (e) {
@@ -69,7 +69,7 @@ class AuthDatasourceImpl implements AuthDatasource {
       }
       return Left(Failure(message: ServerFailure().message));
     } catch (e) {
-      return Left(Failure(message: e.toString()));
+      return Left(Failure(message: ServerFailure().message));
     }
   }
 }

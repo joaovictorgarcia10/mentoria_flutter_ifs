@@ -7,7 +7,4 @@ part 'meus_enderecos_event.freezed.dart';
 class MeusEnderecosEvent with _$MeusEnderecosEvent {
   const factory MeusEnderecosEvent.getListaEnderecos() =
       _$MeusEnderecosEventGetListaEnderecos;
-  const factory MeusEnderecosEvent.deleteEndereco(
-          {required DeleteEnderecoParams deleteEnderecoParams}) =
-      _$MeusEnderecosEventDeleteListaEnderecos;
 }

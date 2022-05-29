@@ -62,7 +62,6 @@ class _MenuLateralWidgetState extends State<MenuLateralWidget> {
                 leadingIcon: Icons.location_on_outlined,
                 onTap: () => Modular.to.popAndPushNamed("/meus_enderecos"),
               ),
-              const SizedBox(height: 10.0),
               ListTileWidget(
                 title: "Sair",
                 leadingIcon: Icons.exit_to_app_outlined,

@@ -9,6 +9,7 @@ class Endereco {
   final String? uf;
   final String? ddd;
   final DocumentReference? documentReference;
+  final String? userId;
 
   Endereco({
     this.cep,
@@ -19,5 +20,6 @@ class Endereco {
     this.uf,
     this.ddd,
     this.documentReference,
+    this.userId,
   });
 }

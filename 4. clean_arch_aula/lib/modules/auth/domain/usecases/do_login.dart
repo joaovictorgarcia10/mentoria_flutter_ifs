@@ -1,24 +1,18 @@
+import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/login/bloc/login_state.dart';
+import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:dartz/dartz.dart';
 
-class DoLogin extends StreamUseCase<DoLoginState, DoLoginParams> {
+class DoLogin extends UsecaseCore<User, DoLoginParams> {
   final AuthRepository repository;
   DoLogin({required this.repository});
 
   @override
-  Stream<DoLoginState> call(DoLoginParams params) async* {
-    yield const DoLoginState.loading();
-
+  Future<Either<Failure, User>> call(DoLoginParams params) async {
     final result = await repository.doLogin(
-      email: params.email,
-      password: params.password,
-    );
-
-    yield result.fold(
-      (l) => DoLoginState.failure(failure: l),
-      (r) => DoLoginState.success(user: r),
-    );
+        email: params.email, password: params.password);
+    return result.fold((l) => Left(l), (r) => Right(r));
   }
 }
 

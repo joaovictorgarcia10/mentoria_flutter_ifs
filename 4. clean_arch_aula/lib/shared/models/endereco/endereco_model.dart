@@ -3,16 +3,17 @@ import 'package:clean_arch_aula/shared/models/endereco/endereco.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EnderecoModel extends Endereco {
-  EnderecoModel({
-    String? cep,
-    String? logradouro,
-    String? complemento,
-    String? bairro,
-    String? localidade,
-    String? uf,
-    String? ddd,
-    DocumentReference? documentReference,
-  }) : super(
+  EnderecoModel(
+      {String? cep,
+      String? logradouro,
+      String? complemento,
+      String? bairro,
+      String? localidade,
+      String? uf,
+      String? ddd,
+      DocumentReference? documentReference,
+      String? userId})
+      : super(
           cep: cep,
           logradouro: logradouro,
           complemento: complemento,
@@ -21,27 +22,19 @@ class EnderecoModel extends Endereco {
           uf: uf,
           ddd: ddd,
           documentReference: documentReference,
+          userId: userId,
         );
 
-  EnderecoModel copyWith({
-    String? cep,
-    String? logradouro,
-    String? complemento,
-    String? bairro,
-    String? localidade,
-    String? uf,
-    String? ddd,
-    DocumentReference? documentReference,
-  }) {
+  factory EnderecoModel.fromFirebase(DocumentSnapshot doc) {
     return EnderecoModel(
-      cep: cep ?? this.cep,
-      logradouro: logradouro ?? this.logradouro,
-      complemento: complemento ?? this.complemento,
-      bairro: bairro ?? this.bairro,
-      localidade: localidade ?? this.localidade,
-      uf: uf ?? this.uf,
-      ddd: ddd ?? this.ddd,
-      documentReference: documentReference ?? this.documentReference,
+      cep: doc['cep'],
+      logradouro: doc['logradouro'],
+      complemento: doc['complemento'],
+      bairro: doc['bairro'],
+      localidade: doc['localidade'],
+      uf: doc['uf'],
+      ddd: doc['ddd'],
+      documentReference: doc.reference,
     );
   }
 
@@ -69,6 +62,9 @@ class EnderecoModel extends Endereco {
     if (ddd != null) {
       result.addAll({'ddd': ddd});
     }
+    if (userId != null) {
+      result.addAll({'userId': userId});
+    }
 
     return result;
   }
@@ -82,6 +78,7 @@ class EnderecoModel extends Endereco {
       localidade: map['localidade'],
       uf: map['uf'],
       ddd: map['ddd'],
+      userId: map['userId'],
     );
   }
 
@@ -89,22 +86,4 @@ class EnderecoModel extends Endereco {
 
   factory EnderecoModel.fromJson(String source) =>
       EnderecoModel.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'EnderecoModel(cep: $cep, logradouro: $logradouro, complemento: $complemento, bairro: $bairro, localidade: $localidade, uf: $uf, ddd: $ddd, documentReference: $documentReference)';
-  }
-
-  factory EnderecoModel.fromFirebase(DocumentSnapshot doc) {
-    return EnderecoModel(
-      cep: doc['cep'],
-      logradouro: doc['logradouro'],
-      complemento: doc['complemento'],
-      bairro: doc['bairro'],
-      localidade: doc['localidade'],
-      uf: doc['uf'],
-      ddd: doc['ddd'],
-      documentReference: doc.reference,
-    );
-  }
 }

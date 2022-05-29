@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:clean_arch_aula/modules/home/data/datasources/home_datasource.dart';
 import 'package:clean_arch_aula/shared/models/endereco/endereco_model.dart';
 import 'package:clean_arch_aula/modules/home/domain/repositories/home_repository.dart';

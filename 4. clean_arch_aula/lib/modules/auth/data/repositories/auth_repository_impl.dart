@@ -6,7 +6,6 @@ import 'package:dartz/dartz.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthDatasource datasource;
-
   AuthRepositoryImpl({required this.datasource});
 
   @override
@@ -17,10 +16,8 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> createAccount({
-    required String email,
-    required String password,
-  }) {
+  Future<Either<Failure, bool>> createAccount(
+      {required String email, required String password}) {
     final result = datasource.createAccount(email: email, password: password);
     return result;
   }

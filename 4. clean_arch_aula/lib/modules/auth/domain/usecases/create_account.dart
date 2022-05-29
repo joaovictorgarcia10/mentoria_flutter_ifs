@@ -1,24 +1,18 @@
 import 'package:clean_arch_aula/modules/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_arch_aula/modules/auth/presentation/cadastro/bloc/cadastro_state.dart';
+import 'package:clean_arch_aula/shared/core/error/failure.dart';
 import 'package:clean_arch_aula/shared/core/usecase/usecase_core.dart';
+import 'package:dartz/dartz.dart';
 
-class CreateAccount extends StreamUseCase<CadastroState, CreateAccountParams> {
+class CreateAccount extends UsecaseCore<bool, CreateAccountParams> {
   final AuthRepository repository;
   CreateAccount({required this.repository});
 
   @override
-  Stream<CadastroState> call(CreateAccountParams params) async* {
-    yield const CadastroState.loading();
-
+  Future<Either<Failure, bool>> call(CreateAccountParams params) async {
     final result = await repository.createAccount(
-      email: params.email,
-      password: params.password,
-    );
+        email: params.email, password: params.password);
 
-    yield result.fold(
-      (l) => CadastroState.failure(failure: l),
-      (r) => const CadastroState.success(),
-    );
+    return result.fold((l) => Left(l), (r) => Right(r));
   }
 }
 

@@ -8,10 +8,21 @@ class CadastroBloc extends Bloc<CadastroEvent, CadastroState> {
 
   CadastroBloc(
     this._createAccount,
-  ) : super(const CadastroState.empty());
+  ) : super(const CadastroState.empty()) {
+    on<CadastroEvent>(_onEvent);
+  }
 
-  @override
-  Stream<CadastroState> mapEventToState(CadastroEvent event) async* {
-    yield* event.when(createAccount: (params) => _createAccount(params));
+  Future<void> _onEvent(
+      CadastroEvent event, Emitter<CadastroState> emit) async {
+    emit(const CadastroState.loading());
+    await event.when(
+      createAccount: (params) async {
+        final result = await _createAccount(params);
+        result.fold(
+          (l) => emit(CadastroState.failure(failure: l)),
+          (r) => const CadastroState.success(),
+        );
+      },
+    );
   }
 }

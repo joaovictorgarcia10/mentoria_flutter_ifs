@@ -3,13 +3,13 @@ import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class EnderecoCardWidget extends StatelessWidget {
-  final VoidCallback onPressSalvar;
   final EnderecoModel endereco;
+  final VoidCallback? onPressSalvar;
 
   const EnderecoCardWidget({
     Key? key,
-    required this.onPressSalvar,
     required this.endereco,
+    this.onPressSalvar,
   }) : super(key: key);
 
   @override
@@ -22,6 +22,14 @@ class EnderecoCardWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if (endereco.logradouro != null) ...[
+              Text(
+                "CEP: ${endereco.cep}",
+                style: AppTextStyles.listTileTitle,
+              ),
+              const Divider(thickness: 1),
+              const SizedBox(height: 5.0),
+            ],
             if (endereco.logradouro != null) ...[
               Text(
                 "Logradouro: ${endereco.logradouro}",
@@ -62,13 +70,14 @@ class EnderecoCardWidget extends StatelessWidget {
               const Divider(thickness: 1),
             ],
             const SizedBox(height: 10.0),
-            TextButton(
-              onPressed: onPressSalvar,
-              child: const Text(
-                "Salvar Endereço",
-                textAlign: TextAlign.center,
+            if (onPressSalvar != null)
+              TextButton(
+                onPressed: onPressSalvar,
+                child: const Text(
+                  "Salvar Endereço",
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
           ],
         ),
       ),

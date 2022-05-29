@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:clean_arch_aula/modules/meus_enderecos/presentation/bloc/meus_enderecos_bloc.dart';
-import 'package:clean_arch_aula/modules/meus_enderecos/presentation/bloc/meus_enderecos_event.dart';
-import 'package:clean_arch_aula/modules/meus_enderecos/presentation/bloc/meus_enderecos_state.dart';
+import 'package:clean_arch_aula/modules/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_event.dart';
+import 'package:clean_arch_aula/modules/meus_enderecos/presentation/pages/meus_enderecos/bloc/meus_enderecos_state.dart';
 import 'package:clean_arch_aula/shared/models/endereco/endereco.dart';
 import 'package:clean_arch_aula/shared/widgets/error_modal/error_modal_widget.dart';
 import 'package:clean_arch_aula/shared/widgets/list_tile/list_tile_widget.dart';
@@ -9,7 +8,8 @@ import 'package:clean_arch_aula/shared/widgets/message_card/message_card_widget.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../shared/widgets/loading_modal/loading_modal_widget.dart';
+import '../../../../../shared/widgets/loading_modal/loading_modal_widget.dart';
+import 'bloc/meus_enderecos_bloc.dart';
 
 class MeusEnderecosPage extends StatefulWidget {
   const MeusEnderecosPage({Key? key}) : super(key: key);
@@ -75,18 +75,21 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
             getListaEnderecosSuccess: (listaEnderecos) {
               if (listaEnderecos.isNotEmpty) {
                 return Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: ListView.builder(
                     itemCount: listaEnderecos.length,
                     itemBuilder: (context, index) {
                       Endereco endereco = listaEnderecos[index];
                       return ListTileWidget(
                         leadingIcon: Icons.location_on_outlined,
-                        title:
-                            "${endereco.logradouro}, bairro ${endereco.bairro}",
-                        subtitle: endereco.localidade,
+                        title: "${endereco.logradouro}",
+                        subtitle:
+                            "${endereco.bairro},  ${endereco.localidade} - ${endereco.ddd}",
                         trailingIcon: Icons.keyboard_arrow_right_outlined,
-                        onTapTrailing: () {},
+                        onTapTrailing: () {
+                          Modular.to
+                              .pushNamed("./detalhes", arguments: endereco);
+                        },
                       );
                     },
                   ),
@@ -101,6 +104,13 @@ class _MeusEnderecosPageState extends State<MeusEnderecosPage> {
             orElse: () => Container(),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {
+          bloc.add(const MeusEnderecosEvent.getListaEnderecos());
+        },
+        child: const Icon(Icons.refresh_outlined),
       ),
     );
   }

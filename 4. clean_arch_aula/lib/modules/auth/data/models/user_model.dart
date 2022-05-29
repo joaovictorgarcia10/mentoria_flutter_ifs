@@ -2,25 +2,20 @@ import 'dart:convert';
 import 'package:clean_arch_aula/modules/auth/domain/entities/user.dart';
 
 class UserModel extends User {
-  UserModel({
-    String? nome,
-    String? email,
-    String? photoUrl,
-  }) : super(
-          nome: nome,
-          email: email,
-          photoUrl: photoUrl,
-        );
+  UserModel({String? nome, String? email, String? photoUrl, String? userId})
+      : super(nome: nome, email: email, photoUrl: photoUrl, userId: userId);
 
   UserModel copyWith({
     String? nome,
     String? email,
     String? photoUrl,
+    String? userId,
   }) {
     return UserModel(
       nome: nome ?? this.nome,
       email: email ?? this.email,
       photoUrl: photoUrl ?? this.photoUrl,
+      userId: userId ?? this.userId,
     );
   }
 
@@ -36,6 +31,9 @@ class UserModel extends User {
     if (photoUrl != null) {
       result.addAll({'photoUrl': photoUrl});
     }
+    if (userId != null) {
+      result.addAll({'userId': userId});
+    }
 
     return result;
   }
@@ -45,6 +43,7 @@ class UserModel extends User {
       nome: map['nome'],
       email: map['email'],
       photoUrl: map['photoUrl'],
+      userId: map['userId'],
     );
   }
 
@@ -54,19 +53,7 @@ class UserModel extends User {
       UserModel.fromMap(json.decode(source));
 
   @override
-  String toString() =>
-      'UserModel(nome: $nome, email: $email, photoUrl: $photoUrl)';
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is UserModel &&
-        other.nome == nome &&
-        other.email == email &&
-        other.photoUrl == photoUrl;
+  String toString() {
+    return 'User(nome: $nome, email: $email, photoUrl: $photoUrl, userId: $userId)';
   }
-
-  @override
-  int get hashCode => nome.hashCode ^ email.hashCode ^ photoUrl.hashCode;
 }

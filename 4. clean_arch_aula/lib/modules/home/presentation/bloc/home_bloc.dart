@@ -11,13 +11,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(
     this._buscarEndreco,
     this._saveEndereco,
-  ) : super(const HomeState.empty());
+  ) : super(const HomeState.empty()) {
+    on<HomeEvent>(_onEvent);
+  }
 
-  @override
-  Stream<HomeState> mapEventToState(HomeEvent event) async* {
-    yield* event.when(
-      buscarEndereco: (params) => _buscarEndreco(params),
-      saveEndereco: (endereco) => _saveEndereco(endereco),
+  Future<void> _onEvent(
+    HomeEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    emit(const HomeState.loading());
+
+    await event.when(
+      buscarEndereco: (params) async {
+        final result = await _buscarEndreco(params);
+        result.fold(
+          (l) => emit(HomeState.failure(failure: l)),
+          (r) => emit(HomeState.buscarEnderecoSuccess(endereco: r)),
+        );
+      },
+      saveEndereco: (endereco) async {
+        final result = await _saveEndereco(endereco);
+        result.fold(
+          (l) => emit(HomeState.failure(failure: l)),
+          (r) => emit(const HomeState.saveEnderecoSuccess()),
+        );
+      },
     );
   }
 }

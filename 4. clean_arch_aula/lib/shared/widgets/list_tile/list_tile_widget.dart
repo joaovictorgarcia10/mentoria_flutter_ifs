@@ -1,3 +1,4 @@
+import 'package:clean_arch_aula/shared/utils/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ListTileWidget extends StatelessWidget {
@@ -21,14 +22,15 @@ class ListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.all(15.0),
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22.0)),
       child: ListTile(
-        leading: Icon(
-          leadingIcon,
-          size: 26.0,
+        leading: Icon(leadingIcon, size: 32.0),
+        title: Text(
+          title,
+          style: AppTextStyles.listTileTitle,
         ),
-        title: Text(title),
         subtitle: subtitle != null ? Text(subtitle!) : null,
         trailing: trailingIcon != null
             ? IconButton(onPressed: onTapTrailing, icon: Icon(trailingIcon))
