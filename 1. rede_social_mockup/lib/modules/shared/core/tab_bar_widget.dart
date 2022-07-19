@@ -1,4 +1,5 @@
 import 'package:aula_2/modules/curtidas/curtidas_page.dart';
+import 'package:aula_2/modules/home/pages/home_page.dart';
 import 'package:aula_2/modules/perfil/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _TabBarWidgetState extends State<TabBarWidget> {
   int _currentIndex = 0;
 
   final List<Widget> pages = [
-    Container(),
+    const HomePage(),
     const CurtidasPage(),
     const PerfilPage(),
   ];

@@ -21,79 +21,80 @@ class PerfilHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        CircleAvatar(
+          backgroundImage: AssetImage(imagePath),
+          maxRadius: 45.0,
+        ),
+        const SizedBox(height: 30.0),
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(imagePath),
-              maxRadius: 45.0,
+            Column(
+              children: [
+                const Text(
+                  "Publicações",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.0,
+                  ),
+                ),
+                const SizedBox(height: 5.0),
+                Text(quantidadePublicacoes),
+              ],
             ),
-            const SizedBox(width: 30.0),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      const Text(
-                        "Publicações",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0,
-                        ),
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(quantidadePublicacoes),
-                    ],
+            const SizedBox(width: 10.0),
+            Column(
+              children: [
+                const Text(
+                  "Seguidores",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.0,
                   ),
-                  const SizedBox(width: 10.0),
-                  Column(
-                    children: [
-                      const Text(
-                        "Seguidores",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0,
-                        ),
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(quantidadeSeguidores),
-                    ],
+                ),
+                const SizedBox(height: 5.0),
+                Text(quantidadeSeguidores),
+              ],
+            ),
+            const SizedBox(width: 10.0),
+            Column(
+              children: [
+                const Text(
+                  "Seguindo",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.0,
                   ),
-                  const SizedBox(width: 10.0),
-                  Column(
-                    children: [
-                      const Text(
-                        "Seguindo",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14.0,
-                        ),
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(quantidadeSeguindo),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 5.0),
+                Text(quantidadeSeguindo),
+              ],
             ),
           ],
         ),
         const SizedBox(height: 30.0),
-        Text(
-          nome,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18.0,
-          ),
-        ),
-        const SizedBox(height: 5.0),
-        Text(
-          descricao,
-          style: const TextStyle(
-            fontSize: 16.0,
+        Align(
+          alignment: Alignment.topLeft,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                nome,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                ),
+              ),
+              const SizedBox(height: 5.0),
+              Text(
+                descricao,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 30.0),

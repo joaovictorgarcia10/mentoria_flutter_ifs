@@ -1,4 +1,5 @@
 import 'package:aula_formularios/models/usuario_model.dart';
+import 'package:aula_formularios/pages/user_page.dart';
 import 'package:aula_formularios/widget/button_widget.dart';
 import 'package:aula_formularios/widget/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
@@ -98,9 +99,13 @@ class _FormPageState extends State<FormPage> {
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                      }
 
-                      print(user.toString());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserPage(user: user),
+                            ));
+                      }
                     },
                     title: "Avançar",
                   )

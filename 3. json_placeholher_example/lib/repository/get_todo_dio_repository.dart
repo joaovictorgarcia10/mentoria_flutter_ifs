@@ -6,10 +6,10 @@ class GetTodoDioRepository implements GetTodoRepository {
   final Dio _dio = Dio();
 
   @override
-  Future<List<TodoModel>> getAllTodos({String? cep}) async {
+  Future<List<TodoModel>> getAllTodos() async {
     try {
       var response =
-          await _dio.get("https://jsonplaceholder.typicode.com/todos/$cep");
+          await _dio.get("https://jsonplaceholder.typicode.com/todos/");
 
       if (response.statusCode == 200 && response.data != null) {
         return (response.data as List)
@@ -19,7 +19,7 @@ class GetTodoDioRepository implements GetTodoRepository {
         throw Exception("Erro ao buscar dados");
       }
     } catch (e) {
-      return <TodoModel>[];
+      throw Exception("Erro ao buscar dados");
     }
   }
 }

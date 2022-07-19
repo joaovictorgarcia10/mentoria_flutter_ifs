@@ -12,16 +12,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   GetTodoRepository repository = GetTodoDioRepository();
-  ValueNotifier todoList = ValueNotifier(<TodoModel>[]);
+  List<TodoModel> todoList = <TodoModel>[];
 
-  void _getAllTodos() async {
-    todoList.value.addAll(await repository.getAllTodos());
-    print(todoList.value);
+  Future<void> _getAllTodos() async {
+    todoList.addAll(await repository.getAllTodos());
+    debugPrint(todoList.toString());
+    setState(() {});
   }
 
   @override
   void initState() {
-    print(todoList.value);
+    debugPrint(todoList.toString());
     super.initState();
   }
 
@@ -29,35 +30,40 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text('Tarefas: ${todoList.length}'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              todoList = [];
+              setState(() {});
+            },
+            icon: const Icon(Icons.delete_sweep_outlined),
+          )
+        ],
       ),
       body: SizedBox(
-        child: ValueListenableBuilder(
-          valueListenable: todoList,
-          builder: (___, __, _) {
-            if (todoList.value.isEmpty) {
-              return const Center(
-                child: Text(
-                  "Você não tem nenhuma tarefa",
-                ),
-              );
-            }
-            return ListView.builder(
-              itemCount: todoList.value.length,
-              itemBuilder: (context, index) {
-                TodoModel todo = todoList.value[index];
-
-                return ListTile(
-                  leading: CircleAvatar(child: Text(todo.id.toString())),
-                  title: Text(todo.title),
-                  trailing: Checkbox(
-                    value: todo.completed,
-                    onChanged: (value) {},
+        child: Center(
+          child: (todoList.isEmpty)
+              ? const Center(
+                  child: Text(
+                    "Você não tem nenhuma tarefa",
                   ),
-                );
-              },
-            );
-          },
+                )
+              : ListView.builder(
+                  itemCount: todoList.length,
+                  itemBuilder: (context, index) {
+                    TodoModel todo = todoList[index];
+
+                    return ListTile(
+                      leading: CircleAvatar(child: Text(todo.id.toString())),
+                      title: Text(todo.title),
+                      trailing: Checkbox(
+                        value: todo.completed,
+                        onChanged: (value) {},
+                      ),
+                    );
+                  },
+                ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
